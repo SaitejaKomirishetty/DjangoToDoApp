@@ -14,12 +14,10 @@ A simple To-Do List web application built with Django. This app allows you to ad
 
 Below are some screenshots of the application:
 
-![Home Page](assets/image0.png)
-![Add To-Do](assets/image1.png)
-![Edit To-Do](assets/image2.png)
-![Completed To-Do](assets/image3.png)
-
-
+![Home Page](Assets/image0.png)
+![Add To-Do](Assets/image1.png)
+![Edit To-Do](Assets/image2.png)
+![Completed To-Do](Assets/image3.png)
 
 ## Project Structure
 

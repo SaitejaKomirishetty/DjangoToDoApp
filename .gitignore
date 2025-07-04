@@ -1,0 +1,19 @@
+# .gitignore
+
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+/staticfiles/
+/media/
+/node_modules/
+*.log
+
+# Django specific
+*.sqlite3
+*.py[cod]
+*.pyo
+venv/
+.env/
+.DS_Store
+*.swp

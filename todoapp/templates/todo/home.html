@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'todo/style.css' %}"
+        />
+        <title>To-Do App</title>
+    </head>
+    <body>
+        <h1>My To-Do List</h1>
+
+        <form method="POST">
+            {% csrf_token %} {{ form.as_p }}
+            <button type="submit">Add To-Do</button>
+        </form>
+
+        <hr />
+
+        {% if todos %}
+        <ul>
+            {% for todo in todos %}
+            <li>
+                {{ todo.title }} -
+        {% if todo.is_completed %}
+            ✅ Completed
+        {% else %}
+            ❌ Not Done
+        {% endif %}
+        <small>(Added {{ todo.created_at|date:"d M Y H:i" }})</small>
+                <a href="{% url 'update_todo' todo.id %}">✏️ Edit</a>
+                <a href="{% url 'delete_todo' todo.id %}">🗑 Delete</a>
+                <a href="{% url 'toggle_todo' todo.id %}">
+                    {% if todo.is_completed %} 🔄 Mark as Incomplete {% else %}
+                    ✅ Mark as Done {% endif %}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No to-do items yet.</p>
+        {% endif %}
+    </body>
+</html>
